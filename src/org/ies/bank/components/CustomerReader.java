@@ -12,11 +12,14 @@ public class CustomerReader {
     }
 
     public Customer read() {
-        System.out.println("Introduce tu NIF");
+        System.out.println("Introduce los datos del cliente:");
+        System.out.println("NIF:");
         String nif = scanner.nextLine();
-        System.out.println("Introduce tu Nombre");
+
+        System.out.println("Nombre:");
         String name = scanner.nextLine();
-        System.out.println("Introduce tus Apellidos");
+
+        System.out.println("Apellidos:");
         String surname = scanner.nextLine();
 
         return new Customer(

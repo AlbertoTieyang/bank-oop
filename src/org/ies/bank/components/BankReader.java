@@ -15,24 +15,23 @@ public class BankReader {
     }
 
     public Bank read() {
-        System.out.println("Introduce el nombre del banco");
-        String bankName = scanner.nextLine();
+        System.out.println("Introduce los datos del banco:");
+        System.out.println("Nombre:");
+        String name = scanner.nextLine();
 
-        System.out.println("Introduce cuantas cuentas se van a introducir");
-        int n = scanner.nextInt();
+        System.out.println("¿Cuantas cuentas hay?");
+        int numAccounts = scanner.nextInt();
         scanner.nextLine();
-        while (n <= 0) {
-            System.out.println("Número no válido, introduce otro");
-            n = scanner.nextInt();
-            scanner.nextLine();
+
+        Account[] accounts = new Account[numAccounts];
+
+        for (int i = 0; i < accounts.length; i++) {
+            accounts[i] = accountReader.read();
         }
-        Account[] account = new Account[n];
-        for (int i = 0; i < account.length; i++) {
-            account[i] = accountReader.read();
-        }
+
         return new Bank(
-                bankName,
-                account
+                name,
+                accounts
         );
     }
 }
